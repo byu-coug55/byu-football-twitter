@@ -4,6 +4,7 @@ Trying out the Twitter API
 https://www.linkedin.com/pulse/byu-football-twitter-analysis-m-lance-christian/
 
 One of the most anticipated games in the second week of college football play was the BYU-Baylor game. BYU will be moving into the Big 12 Conference in 2023 and Baylor will be an in-conference rival. Last year, BYU lost to Baylor in Texas 38 to 24 in a game where Baylor dominated in the run and BYU struggled. This year's match-up looked even more bleak for BYU as two of their strongest playmakers were injured (G. Romney and P. Nacua) in addition to being ranked lower on the AP poll. Before the game BYU was ranked 21st, while Baylor was ranked 9th.
+
 With all this in play, I was interested in how the BYU fanbase felt about the game and what they were saying on Twitter about it. So naturally, I opened up my laptop and went directly to R! I recently read through Julia Silge's and David Robinson's book Text Mining with R [https://www.tidytextmining.com/]. This book goes into detail about different text mining techniques including summary metrics, sentiment analysis, term frequency-inverse document frequency (tf-idf), and topic modeling. I decided to use these techniques to perform my BYU Football Twitter Analysis.
 So let's dig in. First up, loading the libraries:
 
@@ -18,7 +19,7 @@ library(jsonlite)
 library(ggpubr)
 library(topicmodels)
 ```
-I then set up my API call so I can receive Twitter data. Twitter does a very good job of documenting its API endpoints and helping users accomplish what they set out to do. This article helped me quickly get up and running with Twitter's API. For my use-case I used the mentions endpoint and found @BYUfootball's user ID (874824792) using tweeterid.com.
+I then set up my API call so I can receive Twitter data. Twitter does a very good job of documenting its API endpoints and helping users accomplish what they set out to do. [This article](https://developer.twitter.com/en/docs/tutorials/getting-started-with-r-and-v2-of-the-twitter-api) helped me quickly get up and running with Twitter's API. For my use-case I used the mentions endpoint and found @BYUfootball's user ID (874824792) using tweeterid.com.
 ```
 twitter_creds <- jsonlite::fromJSON("api_keys_twitter.json")
 twitter_url <- "https://api.twitter.com/2/"
